@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenji Soria Jayme - Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1e1e1e;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            margin: 1rem 0;
+        }
+        nav a {
+            margin: 0 1rem;
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h1, h2 {
+            margin: 0.5rem 0;
+        }
+        .contact-info, .upload-form {
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        .product-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .product-gallery img {
+            max-width: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        input[type="file"] {
+            display: block;
+            margin: 1rem 0;
+        }
+        button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0077cc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kenji Soria Jayme</h1>
+        <h2>Digital Marketer & Product Designer</h2>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my personal webpage! My name is Ken, and I am currently pursuing digital marketing, online technical support, and digital product designing. I am passionate about investing, digital fluency, digital marketing, and cryptocurrency.</p>
+            <p>In my spare time, I like to read and discover new market trends to broaden my knowledge about how things work in actual business.</p>
+        </section>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="product-gallery">
+                <!-- Product images will be displayed here -->
+            </div>
+            <div class="upload-form">
+                <h3>Upload New Product Design</h3>
+                <input type="file" id="fileInput">
+                <button onclick="uploadImage()">Upload</button>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Feel free to reach out to me:</p>
+                <p>Email: <a href="mailto:kenjijayme41@gmail.com">kenjijayme41@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+    <script>
+        function uploadImage() {
+            const input = document.getElementById('fileInput');
+            const gallery = document.querySelector('.product-gallery');
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    gallery.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
